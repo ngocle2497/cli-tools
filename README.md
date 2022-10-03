@@ -11,7 +11,7 @@
 Usage:
 
 ```sh
-npx cli-tools appicon <flag>
+npx rn-ml appicon <flag>
 ```
 
 #### `-s <path>` or `--source <path>` (Required)

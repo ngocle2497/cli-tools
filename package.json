@@ -1,10 +1,10 @@
 {
-  "name": "cli-tools",
+  "name": "rn-ml",
   "version": "0.0.1",
   "description": "React Native cli tools",
   "main": "./lib/bin.js",
   "bin": {
-    "cli-tools": "./lib/bin.js"
+    "rn-ml": "./lib/bin.js"
   },
   "publishConfig": {
     "access": "public"
@@ -14,10 +14,11 @@
   ],
   "scripts": {
     "build": "tsc -p .",
-    "local": "yarn build && npm uninstall -g cli-tools &&  npm i -g"
+    "local": "yarn build && npm uninstall -g rn-ml &&  npm i -g"
   },
   "keywords": [
     "cli-tools",
+    "rn-ml",
     "rn command",
     "cli",
     "react-native"
