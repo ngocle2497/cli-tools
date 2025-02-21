@@ -3,34 +3,12 @@ import fs from "fs-extra";
 import path from "path";
 import sharp from "sharp";
 import { error, log } from "../tools/logger";
-import { mergeArray } from "./common";
 import { findXcodeProject } from "./constants";
 import iosContents from "./template/ios/Contents.json";
-import * as dataIOS from "./template/ios/data";
+import { iosIcons, iosIconsSize } from "./template/ios/data";
 import { IOSConfigOptions } from "./type";
 
 const run = async (config: IOSConfigOptions) => {
-  // get list icon size and list icon json
-  let iosIconsSize = [];
-  let newImagesIos = [];
-  if (
-    config.platform.includes("all") ||
-    (config.platform.includes("ipad") && config.platform.includes("ios"))
-  ) {
-    iosIconsSize = mergeArray(dataIOS.iPadIconsSize, dataIOS.iphoneIconsSize);
-    newImagesIos = [
-      ...dataIOS.iphoneIcons,
-      ...dataIOS.iPadIcons,
-      ...iosContents.images,
-    ];
-  } else if (config.platform.includes("ios")) {
-    iosIconsSize = dataIOS.iphoneIconsSize;
-    newImagesIos = [...dataIOS.iphoneIcons, ...iosContents.images];
-  } else {
-    newImagesIos = [...dataIOS.iPadIcons, ...iosContents.images];
-    iosIconsSize = dataIOS.iPadIconsSize;
-  }
-
   // get custom AppIcon Folder Name IOS
   const appIconFileName = `${config.iosIconName}.appiconset`;
 
@@ -73,7 +51,7 @@ const run = async (config: IOSConfigOptions) => {
   //   fs.ensureDirSync(contentsJsonPath);
   await fs.writeJSONSync(contentsJsonPath, {
     ...iosContents,
-    images: newImagesIos,
+    images: iosIcons,
   });
 };
 export { run };

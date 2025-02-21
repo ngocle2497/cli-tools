@@ -3,7 +3,7 @@
 ## Command
 
 - [`appicon`](#appicon)
-  
+
 ### `appicon`
 
 <img src="./preview/appicon.gif"/>
@@ -30,15 +30,19 @@ Either "ios" or "android" or "ipad" or "all"
 
 #### `-ar <string>` or `--android-source <string>`
 
->default: ./android
+> default: ./android
 
 Custom android path
 
 #### `-is <string>` or `--ios-source <string>`
 
->default: ./ios
+> default: ./ios
 
-Custom ios path
+#### `-icn <string>`
+
+> default: AppIcon
+
+Custom ios asset name
 
 # License
 
